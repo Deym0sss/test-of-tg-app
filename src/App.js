@@ -1,21 +1,18 @@
 import React, { useEffect } from "react";
 import "./App.css";
-const tg = window.Telegram.WebApp;
-console.log(tg);
-console.log(window);
+import Header from "./components/Header/Header";
+import { useTelegram } from "./hooks/useTelegram";
 
 function App() {
+  const { tg, onToggleButton } = useTelegram();
   useEffect(() => {
     tg.ready();
   }, []);
 
-  const onClose = () => {
-    tg.close();
-  };
-
   return (
     <div className="App">
-      <button onClick={onClose}>Close</button>
+      <Header />
+      <button onClick={onToggleButton}>Toggle</button>
     </div>
   );
 }
