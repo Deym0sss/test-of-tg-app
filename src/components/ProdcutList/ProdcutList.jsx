@@ -113,7 +113,7 @@ const ProductList = () => {
     } else {
       tg.MainButton.show();
       tg.MainButton.setParams({
-        text: `Buy: ${getTotalPrice(newItems)}}`,
+        text: `Buy: ${getTotalPrice(newItems)} UAH`,
       });
     }
   };
@@ -121,7 +121,13 @@ const ProductList = () => {
   return (
     <div className={"list"}>
       {products.map((item) => {
-        return <ProductItem product={item} onAdd={onAdd} className={"item"} />;
+        return (
+          <ProductItem
+            product={item}
+            onAdd={() => onAdd(item)}
+            className={"item"}
+          />
+        );
       })}
     </div>
   );
