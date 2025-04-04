@@ -77,8 +77,9 @@ const ProductList = () => {
   const [addedItems, setAddedItems] = React.useState([]);
   const { tg, queryId } = useTelegram();
   const onSendData = useCallback(() => {
+    const productTitles = addedItems.map((item) => item.title);
     const data = {
-      products: addedItems,
+      products: productTitles,
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
