@@ -82,7 +82,7 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
-    fetch("http://localhost:8000/web-data", {
+    fetch("https://test-of-tg-app-server.onrender.com/web-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
